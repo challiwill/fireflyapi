@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
   validates_format_of :email, :with => /@berkeley\.edu/
 
   validates_uniqueness_of :email
+
+  has_and_belongs_to_many :groups
 end
