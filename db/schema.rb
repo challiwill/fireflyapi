@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150913194045) do
+ActiveRecord::Schema.define(version: 20150913195706) do
 
   create_table "users", force: :cascade do |t|
-    t.string   "index"
-    t.string   "create"
-    t.string   "delete"
-    t.string   "update"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
+    t.string   "email"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
 end
