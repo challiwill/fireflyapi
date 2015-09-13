@@ -4,8 +4,11 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all
-
+    if params[:user_id]
+      @groups = User.find(params[:user_id]).groups
+    else
+      @groups = Group.all
+    end
     render json: @groups
   end
 
@@ -18,6 +21,10 @@ class GroupsController < ApplicationController
   # POST /groups
   # POST /groups.json
   def create
+    if params[:user_id]
+      params[:group][:user_ids] = [ params[:user_id] ] 
+    end
+
     @group = Group.new(group_params)
 
     if @group.save
