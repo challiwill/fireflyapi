@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_latitude: 1.5
+  start_longitude: 1.5
+  end_latitude: 1.5
+  end_longitude: 1.5
+  end_time: 2015-09-13 14:49:21
+
+two:
+  start_latitude: 1.5
+  start_longitude: 1.5
+  end_latitude: 1.5
+  end_longitude: 1.5
+  end_time: 2015-09-13 14:49:21
