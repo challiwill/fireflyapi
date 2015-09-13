@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   end
   resources :users, except: [:new, :edit] do
     resources :groups
+    resources :trips
   end
   resources :trips, except: [:new, :edit]
 end
