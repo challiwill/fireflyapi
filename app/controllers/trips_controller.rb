@@ -4,7 +4,11 @@ class TripsController < ApplicationController
   # GET /trips
   # GET /trips.json
   def index
-    @trips = Trip.all
+    if params[:user_id]
+      @trips = User.find(params[:user_id]).trips
+    else
+      @trips = Trip.all      
+    end
 
     render json: @trips
   end
@@ -18,8 +22,11 @@ class TripsController < ApplicationController
   # POST /trips
   # POST /trips.json
   def create
-    @trip = Trip.new(trip_params)
+    if params[:user_id]
+      params[:trip][:user_id] = params[:user_id]
+    end
 
+    @trip = Trip.new(trip_params)
     if @trip.save
       render json: @trip, status: :created, location: @trip
     else
