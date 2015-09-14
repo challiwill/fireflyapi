@@ -7,7 +7,7 @@ class TripsController < ApplicationController
     if params[:user_id]
       @trips = User.find(params[:user_id]).trips
     elsif params[:group_id]
-      @trips = Group.find(params[:group_id]).trips
+      @trips = Group.find(params[:group_id]).trips.unfinished
     else
       @trips = Trip.all      
     end
