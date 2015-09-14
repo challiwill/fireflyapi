@@ -6,6 +6,8 @@ class TripsController < ApplicationController
   def index
     if params[:user_id]
       @trips = User.find(params[:user_id]).trips
+    elsif params[:group_id]
+      @trips = Group.find(params[:group_id]).trips
     else
       @trips = Trip.all      
     end
