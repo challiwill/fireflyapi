@@ -34,3 +34,5 @@ GET
 DELETE
 /groups/:id/members
 GET
+/groups/:id/trips -- return all current trips that this group has
+GET
