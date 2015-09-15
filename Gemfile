@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'rspec-rails', :group => [:development, :test]
 
 gem 'rails', '4.2.4'
 
