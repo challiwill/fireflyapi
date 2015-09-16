@@ -1,8 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe TripsController, type: :controller do
+  let(:user) {
+    User.create!( :name => 'Test User',
+                  :email => 'testmail@berkeley.edu',
+                  :password => '123456789Testing' )
+  }
+
+  # This should return the minimal set of values that should be in the session
+  # in order to pass any filters (e.g. authentication) defined in
+  # GroupsController. Be sure to keep this updated too.
+  let(:valid_session) { user.create_new_auth_token }
+
   before(:each) do
-    User.create(:name => 'Testname one', :email => 'test1@email.com')
+    sign_in user
+  end
+
+  before(:each) do
     Group.create(:name => 'Testgroup one')
     Group.create(:name => 'Testgroup two')
   end

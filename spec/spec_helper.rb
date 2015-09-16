@@ -31,6 +31,8 @@ RSpec.configure do |config|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
 
+  config.include Devise::TestHelpers, :type => :controller
+
   # Colors output to be Green/Yellow/Red
   config.color = true
   config.tty = true

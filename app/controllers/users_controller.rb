@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_user, only: [:show, :update, :destroy]
+
 
   # GET /users/1
   # GET /users/1.json
@@ -10,8 +12,6 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    @user = User.find(params[:id])
-
     if @user.update(user_params)
       head :no_content
     else
@@ -19,18 +19,9 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
-  def destroy
-    @user.destroy
-
-    head :no_content
-  end
-
   private
-
     def set_user
-      @user = User.find(params[:id])
+      @user = current_user
     end
 
     def user_params

@@ -1,8 +1,11 @@
 class User < ActiveRecord::Base
-  validates_presence_of :name
+  # Include default devise modules.
+  devise :database_authenticatable, :registerable,
+          :recoverable, :rememberable, :trackable
+  include DeviseTokenAuth::Concerns::User
+
   validates_presence_of :email 
 
-  validates_format_of :name, :with => /\A[A-za-z\ \-']+\z/
   validates_format_of :email, :with => /@berkeley\.edu/
 
   validates_uniqueness_of :email
