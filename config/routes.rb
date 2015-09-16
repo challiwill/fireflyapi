@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :widgets, except: [:new, :edit]
   resources :groups, except: [:new, :edit] do
     resources :users, as: 'members', path: 'members'
     resources :trips
