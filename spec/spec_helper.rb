@@ -35,9 +35,6 @@ RSpec.configure do |config|
   config.color = true
   config.tty = true
 
-  # Shows the actual tests when they are run
-  config.formatter = :documentation
-
   # rspec-mocks config goes here. You can use an alternate test double
   # library (such as bogus or mocha) by changing the `mock_with` option here.
   config.mock_with :rspec do |mocks|
