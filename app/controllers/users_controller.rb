@@ -1,37 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
-  # GET /users
-  # GET /users.json
-  def index
-    if params[:group_id]
-      @users = Group.find(params[:group_id]).users
-    else
-      @users = User.all
-    end
-
-    render json: @users
-  end
-
   # GET /users/1
   # GET /users/1.json
   def show
     render json: @user
-  end
-
-  # POST /users
-  # POST /users.json
-  def create
-    if params[:group_id]
-      params[:user][:group_ids] = [ params[:group_id] ]
-    end
-
-    @user = User.new(user_params)
-    if @user.save
-      render json: @user, status: :created, location: @user
-    else
-      render json: @user.errors, status: :unprocessable_entity
-    end
   end
 
   # PATCH/PUT /users/1
