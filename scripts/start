@@ -1,1 +1,1 @@
-thin start -p 3001 --ssl --ssl-disable-verify --ssl-key-file server.key --ssl-cert-file server.crt
+thin -D -V -a 127.0.0.1 -p 3001 --ssl --ssl-disable-verify --ssl-key-file server.key --ssl-cert-file server.crt start
